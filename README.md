@@ -29,6 +29,7 @@
 - **CustomCrafting**
 - **CustomRecipes**
 - **RecipeManager**
+- **等等 请提交需求**
 
 ## 如何正确更新配方？
 
