@@ -25,14 +25,15 @@
 
 ## 插件支持
 
-- **CMI**：支持自定义配方功能。
-- **CustomCrafting**：支持自定义配方功能。
-- 等等注册配方插件
+- **CMI** 自定义配方功能
+- **CustomCrafting**
+- **CustomRecipes**
+- **RecipeManager**
 
 ## 如何正确更新配方？
 
 -  1. 第三方插件注册、更新配方；
--  2. 执行指令 `/discoverRecipe reload` 载入更新后的配方
--  3. 执行指令 `/discoverRecipe` `/discoverRecipe run <player>` 更新玩家配方书
+-  2. 执行指令 `/discoverRecipe reload` 载入更新后的配方；
+-  3. 执行指令 `/discoverRecipe` `/discoverRecipe run <player>` 更新玩家配方书；
 -  4. 测试没问题？大功告成！
 -  5. `如果你嫌麻烦，可以重启服务器`
