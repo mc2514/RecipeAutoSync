@@ -1,4 +1,4 @@
-# DiscoverRecipe Minecraft Java版 Spigot插件
+# DiscoverRecipe 配方书全解锁 Minecraft Java版插件
 
 ## 插件介绍
 
