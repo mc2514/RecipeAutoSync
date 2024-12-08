@@ -1,0 +1,22 @@
+name: DiscoverRecipe
+version: 0.1
+main: com.highrii.discoverrecipe.DiscoverRecipe
+api-version: 1.20
+commands:
+  discoverRecipe:
+    description: 解锁指定玩家或所有玩家的配方
+    usage: /discoverRecipe run [player]
+    permission: discoverrecipe.use
+    permission-message: 你没有权限执行此命令。
+  reloadRecipes:
+    description: 重新加载所有配方
+    usage: /discoverRecipe reload
+    permission: discoverrecipe.reload
+    permission-message: 你没有权限执行此命令。
+permissions:
+  discoverrecipe.use:
+    description: 允许使用 /discoverRecipe 命令
+    default: op
+  discoverrecipe.reload:
+    description: 允许重新加载配方
+    default: op
