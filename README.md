@@ -38,3 +38,8 @@
 -  3. 执行指令 `/discoverRecipe` `/discoverRecipe run <player>` 更新玩家配方书；
 -  4. 测试没问题？大功告成！
 -  5. `如果你嫌麻烦，可以重启服务器`
+
+## 作者联系方式
+
+- **邮箱：**`chinahighrii@163.com`
+- **QQ：** `2815988674` *(说明来意)*
