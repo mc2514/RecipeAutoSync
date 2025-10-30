@@ -1,12 +1,23 @@
 name: RecipeAutoSync
+version: 1.0.0
 main: io.github.recipesync.RecipeAutoSync
-version: 1.2.0
-api-version: 1.20
-libraries:
-  - io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT
-softdepend:
-  - Craftorithm
-  - CMI
-  - CustomCrafting
-  - CustomRecipes
-  - RecipeManager
+api-version: "1.20"
+description: Automatically sync server recipes to players with Folia support
+author: Highrii
+website: https://github.com/Highrii/RecipeAutoSync
+
+# Folia 支持配置
+folia-supported: true
+libraries: []
+load: POSTWORLD
+
+commands:
+  recipesync:
+    description: Reload server recipes
+    usage: /<command>
+    permission: recipesync.reload
+
+permissions:
+  recipesync.reload:
+    description: Allows reloading of server recipes
+    default: op
