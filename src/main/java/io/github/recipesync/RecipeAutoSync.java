@@ -21,7 +21,7 @@ public class RecipeAutoSync extends JavaPlugin implements Listener {
     public void onEnable() {
         reloadServerRecipes();
         Bukkit.getPluginManager().registerEvents(this, this);
-        getLogger().info("RecipeAutoSync enabled");
+        getLogger().info("RecipeAutoSync enabled with Folia support");
     }
 
     private void reloadServerRecipes() {
@@ -38,12 +38,14 @@ public class RecipeAutoSync extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         final Player player = event.getPlayer();
-        Bukkit.getScheduler().runTaskAsynchronously(this, () -> {
+        
+        // Folia 适配：使用全局区域调度器进行异步处理
+        Bukkit.getGlobalRegionScheduler().runDelayed(this, task -> {
             final int count = syncRecipes(player);
             if (count > 0) {
                 getLogger().info(player.getName() + " learned " + count + " new recipes");
             }
-        });
+        }, 1L); // 延迟1 tick执行
     }
 
     private int syncRecipes(Player player) {
@@ -55,11 +57,22 @@ public class RecipeAutoSync extends JavaPlugin implements Listener {
         }
         
         if (!missingRecipes.isEmpty()) {
-            Bukkit.getScheduler().runTask(this, () -> 
-                player.discoverRecipes(missingRecipes)
-            );
+            // Folia 适配：使用玩家所在区域的调度器执行同步操作
+            // 注意：player.getLocation() 可能在玩家移动后变化，但配方发现是玩家相关的操作
+            if (player.isOnline()) {
+                Bukkit.getRegionScheduler().run(this, player.getLocation(), task -> {
+                    if (player.isOnline()) {
+                        player.discoverRecipes(missingRecipes);
+                    }
+                });
+            }
             return missingRecipes.size();
         }
         return 0;
+    }
+
+    @Override
+    public void onDisable() {
+        getLogger().info("RecipeAutoSync disabled");
     }
 }
